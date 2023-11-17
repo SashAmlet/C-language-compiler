@@ -1,16 +1,21 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<string.h>
 
 int main() {
-    int number;
-
-    printf("Enter an integer: ");
-    scanf("%d", &number);
-
-    if (number % 2 == 0) {
-        printf("%d is an even number.\n", number);
+    int a;
+    int x=1;
+    int y=2;
+    int z=3;
+    x=3;
+    y=10;
+    z=5;
+    if(x>5) {
+        for(int k=0; k<10; k++) {
+            y = x+3;
+            printf("Hello!");
+        }
     } else {
-        printf("%d is an odd number.\n", number);
+        int idx = 1;
     }
-
-    return 0;
+    return 1;
 }
