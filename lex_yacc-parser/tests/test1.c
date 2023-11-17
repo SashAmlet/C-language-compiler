@@ -1,7 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    int num1, num2, sum;
+    int num1;
+    int num2;
+    int num3;
+    int sum;
+
 
     printf("Enter first integer: ");
     scanf("%d", &num1);
