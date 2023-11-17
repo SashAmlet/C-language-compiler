@@ -113,7 +113,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 50 "Parser.y"
+#line 54 "Parser.y"
  struct var_name { 
 			char name[100]; 
 			struct node* nd;
@@ -124,11 +124,18 @@ typedef union YYSTYPE
 			struct node* nd;
 			char type[5];
 		} nd_obj2; 
+
+		struct var_name3 {
+			char name[100];
+			struct node* nd;
+			char if_body[5];
+			char else_body[5];
+		} nd_obj3;
 	
 
 
 /* Line 1676 of yacc.c  */
-#line 132 "y.tab.h"
+#line 139 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
