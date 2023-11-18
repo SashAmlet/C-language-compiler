@@ -570,9 +570,9 @@ static const yytype_uint16 yyrline[] =
       95,    98,    98,   106,   106,   106,   106,   111,   112,   113,
      113,   114,   114,   117,   117,   118,   121,   121,   122,   122,
      123,   136,   137,   138,   141,   141,   175,   175,   217,   217,
-     218,   218,   229,   244,   245,   248,   289,   292,   293,   294,
-     295,   298,   299,   300,   301,   302,   303,   306,   307,   308,
-     309,   312,   312,   313
+     218,   218,   231,   248,   249,   252,   293,   296,   297,   298,
+     299,   302,   303,   304,   305,   306,   307,   310,   311,   312,
+     313,   316,   316,   317
 };
 #endif
 
@@ -1936,10 +1936,12 @@ yyreduce:
 	(yyvsp[(3) - (3)].nd_obj).nd = mknode(NULL, NULL, (yyvsp[(3) - (3)].nd_obj).name); 
 	(yyval.nd_obj).nd = mknode((yyvsp[(1) - (3)].nd_obj).nd, (yyvsp[(3) - (3)].nd_obj).nd, "ITERATOR");  
 	if(!strcmp((yyvsp[(3) - (3)].nd_obj).name, "++")) {
-		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, (yyvsp[(1) - (3)].nd_obj).name, (yyvsp[(1) - (3)].nd_obj).name, temp_var++);
+		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, (yyvsp[(1) - (3)].nd_obj).name, (yyvsp[(1) - (3)].nd_obj).name, temp_var);
+		temp_var++;
 	}
 	else {
-		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, (yyvsp[(1) - (3)].nd_obj).name, (yyvsp[(1) - (3)].nd_obj).name, temp_var++);
+		sprintf(buff, "t%d = %s - 1\n%s = t%d\n", temp_var, (yyvsp[(1) - (3)].nd_obj).name, (yyvsp[(1) - (3)].nd_obj).name, temp_var);
+		temp_var++;
 	}
 }
     break;
@@ -1947,17 +1949,19 @@ yyreduce:
   case 42:
 
 /* Line 1455 of yacc.c  */
-#line 229 "Parser.y"
+#line 231 "Parser.y"
     { 
 	check_declaration((yyvsp[(2) - (2)].nd_obj).name); 
 	(yyvsp[(1) - (2)].nd_obj).nd = mknode(NULL, NULL, (yyvsp[(1) - (2)].nd_obj).name); 
 	(yyvsp[(2) - (2)].nd_obj).nd = mknode(NULL, NULL, (yyvsp[(2) - (2)].nd_obj).name); 
 	(yyval.nd_obj).nd = mknode((yyvsp[(1) - (2)].nd_obj).nd, (yyvsp[(2) - (2)].nd_obj).nd, "ITERATOR"); 
 	if(!strcmp((yyvsp[(1) - (2)].nd_obj).name, "++")) {
-		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, (yyvsp[(2) - (2)].nd_obj).name, (yyvsp[(2) - (2)].nd_obj).name, temp_var++);
+		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, (yyvsp[(2) - (2)].nd_obj).name, (yyvsp[(2) - (2)].nd_obj).name, temp_var);
+		temp_var++;
 	}
 	else {
-		sprintf(buff, "t%d = %s - 1\n%s = t%d\n", temp_var, (yyvsp[(2) - (2)].nd_obj).name, (yyvsp[(2) - (2)].nd_obj).name, temp_var++);
+		sprintf(buff, "t%d = %s - 1\n%s = t%d\n", temp_var, (yyvsp[(2) - (2)].nd_obj).name, (yyvsp[(2) - (2)].nd_obj).name, temp_var);
+		temp_var++;
 
 	}
 }
@@ -1966,21 +1970,21 @@ yyreduce:
   case 43:
 
 /* Line 1455 of yacc.c  */
-#line 244 "Parser.y"
+#line 248 "Parser.y"
     { (yyval.nd_obj2).nd = (yyvsp[(2) - (2)].nd_obj2).nd; sprintf((yyval.nd_obj2).type, (yyvsp[(2) - (2)].nd_obj2).type); strcpy((yyval.nd_obj2).name, (yyvsp[(2) - (2)].nd_obj2).name); }
     break;
 
   case 44:
 
 /* Line 1455 of yacc.c  */
-#line 245 "Parser.y"
+#line 249 "Parser.y"
     { sprintf((yyval.nd_obj2).type, "null"); (yyval.nd_obj2).nd = mknode(NULL, NULL, "NULL"); strcpy((yyval.nd_obj2).name, "NULL"); }
     break;
 
   case 45:
 
 /* Line 1455 of yacc.c  */
-#line 248 "Parser.y"
+#line 252 "Parser.y"
     { 
 	if(!strcmp((yyvsp[(1) - (3)].nd_obj2).type, (yyvsp[(3) - (3)].nd_obj2).type)) {
 		sprintf((yyval.nd_obj2).type, (yyvsp[(1) - (3)].nd_obj2).type);
@@ -2027,63 +2031,63 @@ yyreduce:
   case 46:
 
 /* Line 1455 of yacc.c  */
-#line 289 "Parser.y"
+#line 293 "Parser.y"
     { strcpy((yyval.nd_obj2).name, (yyvsp[(1) - (1)].nd_obj2).name); sprintf((yyval.nd_obj2).type, (yyvsp[(1) - (1)].nd_obj2).type); (yyval.nd_obj2).nd = (yyvsp[(1) - (1)].nd_obj2).nd; }
     break;
 
   case 57:
 
 /* Line 1455 of yacc.c  */
-#line 306 "Parser.y"
+#line 310 "Parser.y"
     { strcpy((yyval.nd_obj2).name, (yyvsp[(1) - (1)].nd_obj).name); sprintf((yyval.nd_obj2).type, "int"); add('C'); (yyval.nd_obj2).nd = mknode(NULL, NULL, (yyvsp[(1) - (1)].nd_obj).name); }
     break;
 
   case 58:
 
 /* Line 1455 of yacc.c  */
-#line 307 "Parser.y"
+#line 311 "Parser.y"
     { strcpy((yyval.nd_obj2).name, (yyvsp[(1) - (1)].nd_obj).name); sprintf((yyval.nd_obj2).type, "float"); add('C'); (yyval.nd_obj2).nd = mknode(NULL, NULL, (yyvsp[(1) - (1)].nd_obj).name); }
     break;
 
   case 59:
 
 /* Line 1455 of yacc.c  */
-#line 308 "Parser.y"
+#line 312 "Parser.y"
     { strcpy((yyval.nd_obj2).name, (yyvsp[(1) - (1)].nd_obj).name); sprintf((yyval.nd_obj2).type, "char"); add('C'); (yyval.nd_obj2).nd = mknode(NULL, NULL, (yyvsp[(1) - (1)].nd_obj).name); }
     break;
 
   case 60:
 
 /* Line 1455 of yacc.c  */
-#line 309 "Parser.y"
+#line 313 "Parser.y"
     { strcpy((yyval.nd_obj2).name, (yyvsp[(1) - (1)].nd_obj).name); char *id_type = get_type((yyvsp[(1) - (1)].nd_obj).name); sprintf((yyval.nd_obj2).type, id_type); check_declaration((yyvsp[(1) - (1)].nd_obj).name); (yyval.nd_obj2).nd = mknode(NULL, NULL, (yyvsp[(1) - (1)].nd_obj).name); }
     break;
 
   case 61:
 
 /* Line 1455 of yacc.c  */
-#line 312 "Parser.y"
+#line 316 "Parser.y"
     { add('K'); }
     break;
 
   case 62:
 
 /* Line 1455 of yacc.c  */
-#line 312 "Parser.y"
+#line 316 "Parser.y"
     { check_return_type((yyvsp[(3) - (4)].nd_obj2).name); (yyvsp[(1) - (4)].nd_obj).nd = mknode(NULL, NULL, "return"); (yyval.nd_obj).nd = mknode((yyvsp[(1) - (4)].nd_obj).nd, (yyvsp[(3) - (4)].nd_obj2).nd, "RETURN"); }
     break;
 
   case 63:
 
 /* Line 1455 of yacc.c  */
-#line 313 "Parser.y"
+#line 317 "Parser.y"
     { (yyval.nd_obj).nd = NULL; }
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 2087 "y.tab.c"
+#line 2091 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2295,7 +2299,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 316 "Parser.y"
+#line 320 "Parser.y"
 
 
 int main() {

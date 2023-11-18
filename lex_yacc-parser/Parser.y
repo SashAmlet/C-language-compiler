@@ -220,10 +220,12 @@ statement: datatype ID { add('V'); } init {
 	$3.nd = mknode(NULL, NULL, $3.name); 
 	$$.nd = mknode($1.nd, $3.nd, "ITERATOR");  
 	if(!strcmp($3.name, "++")) {
-		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, $1.name, $1.name, temp_var++);
+		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, $1.name, $1.name, temp_var);
+		temp_var++;
 	}
 	else {
-		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, $1.name, $1.name, temp_var++);
+		sprintf(buff, "t%d = %s - 1\n%s = t%d\n", temp_var, $1.name, $1.name, temp_var);
+		temp_var++;
 	}
 }
 | UNARY ID { 
@@ -232,10 +234,12 @@ statement: datatype ID { add('V'); } init {
 	$2.nd = mknode(NULL, NULL, $2.name); 
 	$$.nd = mknode($1.nd, $2.nd, "ITERATOR"); 
 	if(!strcmp($1.name, "++")) {
-		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, $2.name, $2.name, temp_var++);
+		sprintf(buff, "t%d = %s + 1\n%s = t%d\n", temp_var, $2.name, $2.name, temp_var);
+		temp_var++;
 	}
 	else {
-		sprintf(buff, "t%d = %s - 1\n%s = t%d\n", temp_var, $2.name, $2.name, temp_var++);
+		sprintf(buff, "t%d = %s - 1\n%s = t%d\n", temp_var, $2.name, $2.name, temp_var);
+		temp_var++;
 
 	}
 }
