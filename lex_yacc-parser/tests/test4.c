@@ -6,8 +6,9 @@ int main() {
     int x=1;
     int y=2;
     int z=3;
-    p = 1;
+    int p = 1;
     p = p + 3 + 4 + 8;
+    char p = 'a';
     x=3;
     y=10;
     z=5;
