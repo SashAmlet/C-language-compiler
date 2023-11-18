@@ -2464,6 +2464,10 @@ struct node* mknode(struct node *left, struct node *right, char *token) {
 }
 
 void print_tree(struct node* tree) {
+	if (tree == NULL){
+		printf("\n\n An error occurred, the pointer to the beginning of the syntax tree is zero (print_tree method) \n\n");
+		return;
+	}
 	printf("\n\n Inorder traversal of the Parse Tree: \n\n");
 	print_inorder(tree);
 	printf("\n\n Binary Tree in 2-Dimensions: \n\n");
